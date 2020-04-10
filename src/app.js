@@ -50,7 +50,7 @@ app.put('/repositories/:id', (request, response) => {
     title,
     url,
     techs,
-    likes,
+    likes: like,
   };
 
   repositories[repositorioIndex] = repositorie;
@@ -92,7 +92,7 @@ app.post('/repositories/:id/like', (request, response) => {
     return response.status(400).json({ error: 'Repositorie not found.' });
   }
 
-  repositories[repositorioIndex].likes += 1;
+  like = repositories[repositorioIndex].likes += 1;
 
   return response.json(repositories[repositorioIndex]);
 });
